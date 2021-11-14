@@ -5,13 +5,20 @@ const articleCreate = async (req, res) => {
   const { content } = req.body;
   const newArticle = await Article({ content });
   const saveRequest = await newArticle.save();
-  console.log(saveRequest);
-  res.send(true);
+  console.log(`create article: ${saveRequest}`);
+  res.send(saveRequest);
 };
 // READ
 const articleRead = async (req, res) => {
   const articles = await Article.find({});
   res.send(articles);
+};
+// FIND ONE
+const articleFindOne = async (req, res) => {
+  const { id } = req.params;
+  const article = await Article.findById(id);
+  console.log(article);
+  res.send(article);
 };
 // UPDATE
 const articleUpdate = async (req, res) => {
@@ -31,4 +38,5 @@ module.exports = {
   articleRead,
   articleUpdate,
   articleDelete,
+  articleFindOne,
 };

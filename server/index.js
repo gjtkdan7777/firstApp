@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", Article.articleRead);
+app.get("/:id", Article.articleFindOne);
 app.post("/", Article.articleCreate);
 app.patch("/", Article.articleUpdate);
 app.delete("/:id", Article.articleDelete);
