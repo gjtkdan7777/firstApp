@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import Card from "@/components/Card";
+import Card from "./router/Card";
 import axios from "axios";
 
 export default {

@@ -5,12 +5,22 @@
     <div class="created-at">
       {{ article.createdAt | moment("M월 D일 HH:mm") }}
     </div>
-    <button v-if="!isEditing" @click="moveToArticle">이동</button>
-    <button @click="toggleTextArea">
+    <b-button
+      variant="outline-primary"
+      v-if="!isEditing"
+      @click="moveToArticle"
+    >
+      이동
+    </b-button>
+    <b-button variant="secondary" @click="toggleTextArea">
       {{ !isEditing ? "수정" : "수정 취소" }}
-    </button>
-    <button v-if="!isEditing" @click="deleteArticle">삭제</button>
-    <button v-else @click="updateArticle">수정완료</button>
+    </b-button>
+    <b-button variant="danger" v-if="!isEditing" @click="deleteArticle"
+      >삭제</b-button
+    >
+    <b-button variant="success" v-else @click="updateArticle"
+      >수정완료</b-button
+    >
   </article>
 </template>
 <script>
